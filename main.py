@@ -101,3 +101,9 @@ def list_orders(limit: int = Query(10), cursor: str | None = Query(None)):
     items = [{"id": i, "name": f"Order {i}"} for i in range(start + 1, end + 1)]
     next_cursor = encode_cursor(end) if end < TOTAL else None
     return {"items": items, "next_cursor": next_cursor}
+
+import os
+
+@app.get("/debug")
+def debug():
+    return {"pid": os.getpid(), "window": WINDOW, "workers_env": os.environ.get("WEB_CONCURRENCY")}    
