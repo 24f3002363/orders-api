@@ -11,7 +11,7 @@ from fastapi.responses import JSONResponse
 
 TOTAL = 50          # T: catalog is IDs 1..50
 RATE_LIMIT = 20     # R requests per window
-WINDOW = 10.0       # seconds
+WINDOW = 60.0       # seconds
 
 app = FastAPI()
 
